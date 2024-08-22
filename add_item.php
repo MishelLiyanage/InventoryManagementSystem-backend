@@ -23,7 +23,7 @@ $description = $data['Description'];
 $adminId = $data['adminid'];
 
 // Prepare and execute the SQL statement
-$sql = "INSERT INTO invetory (category, itemname, priceunit, quantityinstock, description, addeddate, adminid)
+$sql = "INSERT INTO inventory (category, itemname, priceunit, quantityinstock, description, addeddate, adminid)
         VALUES (?, ?, ?, ?, ?, CURDATE(), ?)";
 $stmt = $conn->prepare($sql);
 

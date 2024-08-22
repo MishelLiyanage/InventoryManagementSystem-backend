@@ -18,7 +18,7 @@ $description = $data['description'];
 $addeddate = $data['addeddate'];
 $id = $data['id']; 
 
-$stmt = $conn->prepare("UPDATE invetory SET category = ?, itemname = ?, priceunit = ?, quantityinstock = ?, description = ?,addeddate= ? WHERE id = ?");
+$stmt = $conn->prepare("UPDATE inventory SET category = ?, itemname = ?, priceunit = ?, quantityinstock = ?, description = ?,addeddate= ? WHERE id = ?");
 $stmt->bind_param('ssiisss', $category, $itemname, $priceunit, $quantityinstock, $description, $addeddate,$id);
 
 $stmt->execute();

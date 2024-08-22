@@ -11,7 +11,7 @@ include_once 'dbconnection.php';
 
 
 $id = $_GET['id'];
-$result = $conn->query("SELECT * FROM invetory WHERE id = $id");
+$result = $conn->query("SELECT * FROM inventory WHERE id = $id");
 
 echo json_encode($result->fetch_assoc());
 ?>

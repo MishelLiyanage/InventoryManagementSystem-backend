@@ -11,7 +11,7 @@ $category = isset($_GET['category']) ? $_GET['category'] : '';
 // Prevent SQL Injection by escaping the input
 $category = $conn->real_escape_string($category);
 
-$sql = "SELECT itemname, priceunit FROM invetory WHERE category = '$category'";
+$sql = "SELECT itemname, priceunit FROM inventory WHERE category = '$category'";
 $result = $conn->query($sql);
 
 $items = [];

@@ -10,7 +10,7 @@ require 'dbconnection.php';
 $searchQuery = isset($_GET['searchQuery']) ? $_GET['searchQuery'] : '';
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 
-$sql = "SELECT * FROM invetory WHERE 1=1";
+$sql = "SELECT * FROM inventory WHERE 1=1";
 
 if ($searchQuery) {
     $sql .= " AND itemname LIKE '%$searchQuery%'";

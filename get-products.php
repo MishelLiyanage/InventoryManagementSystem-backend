@@ -11,7 +11,7 @@ include_once 'dbconnection.php';
 
 
 // Query the database for all records in the products table
-$result = $conn->query('SELECT * FROM invetory');
+$result = $conn->query('SELECT * FROM inventory');
 $products = [];
 
 // Fetch each row as an associative array and add it to the $products array

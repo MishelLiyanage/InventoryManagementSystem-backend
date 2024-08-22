@@ -1,11 +1,11 @@
 <?php
 //To place an Order
-
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 header("Access-Control-Allow-Methods: POST, GET");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
 require 'dbconnection.php';
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -27,7 +27,7 @@ if ($stmt->execute()) {
         $quantity = $item['quantity'];
 
         // Get the item ID from the inventory table
-        $itemQuery = "SELECT id, quantityinstock FROM invetory WHERE itemname = ?";
+        $itemQuery = "SELECT id, quantityinstock FROM inventory WHERE itemname = ?";
         $itemStmt = $conn->prepare($itemQuery);
         $itemStmt->bind_param("s", $itemName);
         $itemStmt->execute();
