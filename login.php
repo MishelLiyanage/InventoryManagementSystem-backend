@@ -23,9 +23,19 @@ $result = $stmt->get_result();
 // Check if a matching user was found
 if ($result->num_rows > 0) {
     $userData = $result->fetch_assoc();
-    echo json_encode(['success' => true, 'user' => $userData]);
+    echo json_encode([
+        'success' => true,
+        'user' => [
+            'id' => $userData['id'],
+            'firstname' => $userData['firstname'],
+            'role' => $userData['role']
+        ]
+    ]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Invalid username or password']);
+    echo json_encode([
+        'success' => false, 
+        'message' => 'Invalid username or password'
+    ]);
 }
 
 $stmt->close();

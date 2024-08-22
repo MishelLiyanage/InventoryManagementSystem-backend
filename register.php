@@ -21,14 +21,14 @@ if (isset($data->firstname, $data->lastname, $data->email, $data->username, $dat
     $role = "user";
 
     // Prepare and bind for the account table
-    $stmt = $conn->prepare("INSERT INTO Account (firstname, lastname, email, username, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO account (firstname, lastname, email, username, password, role) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssss", $firstname, $lastname, $email, $username, $password, $role);
 
     if ($stmt->execute() === TRUE) {
         $account_id = $conn->insert_id; // Get the ID of the inserted row
 
         // Prepare and bind for the user table
-        $stmt_user = $conn->prepare("INSERT INTO users (id, city, telno) VALUES (?, ?, ?)");
+        $stmt_user = $conn->prepare("INSERT INTO customer (id, city, telno) VALUES (?, ?, ?)");
         $stmt_user->bind_param("iss", $account_id, $city, $telno);
 
         // Set parameters and execute
