@@ -40,7 +40,7 @@ if ($stmt->execute()) {
             // Update inventory quantity
             $newStock = $currentStock - $quantity;
             
-            $updateInventoryQuery = "UPDATE invetory SET quantityinstock = ? WHERE id = ?";
+            $updateInventoryQuery = "UPDATE inventory SET quantityinstock = ? WHERE id = ?";
             $updateStmt = $conn->prepare($updateInventoryQuery);
             $updateStmt->bind_param("ii", $newStock, $itemId);
             $updateStmt->execute();
