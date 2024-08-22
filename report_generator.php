@@ -1,14 +1,15 @@
 <?php
-
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET');
-
 // Database connection
-$host = 'localhost';
-$dbname = 'root';
-$user = '';
-$pass = 'ims';
+header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+$host = 'localhost:3306';
+$dbname = 'hackxjr1_ims';
+$user = 'hackxjr1_ims';
+$pass = 'hackxjr1_ims';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
@@ -83,10 +84,10 @@ if (isset($_GET['report']) && $_GET['report'] === 'daily_orders') {
     generateReport($query, 'daily_orders_report', $_GET['format'] ?? 'json');
 }
 
-//Order Amount/Profit by Month (JSON): http://site.com/report_generator.php?report=order_profit
-//Inventory Stock Report (CSV): http://site.com/report_generator.php?report=inventory_stock&format=csv
-//Weekly Sales Summary (JSON): http://site.com/report_generator.php?report=weekly_sales
-//Daily Orders Report (CSV): http://site.com/report_generator.php?report=daily_orders&format=csv
+//Order Amount/Profit by Month (JSON): http://zxzw.rf.gd/report_generator.php?report=order_profit
+//Inventory Stock Report (CSV): http://zxzw.rf.gd/report_generator.php?report=inventory_stock&format=csv
+//Weekly Sales Summary (JSON): http://zxzw.rf.gd/report_generator.php?report=weekly_sales
+//Daily Orders Report (CSV): http://zxzw.rf.gd/report_generator.php?report=daily_orders&format=csv
 
 ?>
 
